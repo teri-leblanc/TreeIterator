@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include "BST.h"
 #include <iostream>
+ #include <stdio.h>
 using namespace std;
 
 /*
@@ -17,12 +18,12 @@ int main(int argc, char** argv) {
 
 
     
-    BST<int> *tree = new BST<int>();
+    BST<int> tree(1);
     cout<< "HEY";
-    tree->Insert(2);
-    tree->Insert(3);
-    cout<< tree->Contains(1);
-    delete tree;
+    tree.Insert(2);
+    tree.Insert(4);
+    tree.Insert(10);
+   cout<< tree.Contains(10);
         return 0;
 }
 

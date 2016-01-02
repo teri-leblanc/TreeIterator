@@ -7,62 +7,67 @@
 
 #ifndef BST_H
 #define	BST_H
- #include <stdio.h>
+#include <stdio.h>
+#include <cstdlib>
+#include <memory>
+#include <iostream>
 template <class T>
 class  BST {
     struct BSTnode
     {
-        BSTnode *leftChild;
-        BSTnode *rightChild;
-        BSTnode *myParent;
-        T key;
-        BSTnode(const T &_key, BSTnode *_leftChild, BSTnode *_rightChild, BSTnode *_myParent) : leftChild(_leftChild),rightChild(_rightChild),myParent(_myParent),key(_key){}
+        std::unique_ptr<BSTnode> leftChild;
+        std::unique_ptr<BSTnode> rightChild;
+        const T &key;
+        BSTnode(const T &_key, BSTnode *_leftChild, BSTnode *_rightChild) : leftChild(_leftChild),rightChild(_rightChild),key(_key){}
     };
 private:
-    BSTnode *root;
+    std::shared_ptr<BSTnode> root;
 public:
-    BST():root(new BSTnode(NULL,NULL,NULL,NULL)){}
-    BST(const T &_key):root(new BSTnode(_key,NULL,NULL,NULL)){}
-    BST(const BST& orig):root(new BSTnode(orig.root.key,orig.root.leftChild,orig.root.rightChild,orig.root)){}
-    virtual ~BST(){}
+    BST():root(nullptr){}
+    BST(const T &_key):root(new BSTnode(_key,nullptr,nullptr)){}
+    BST(const BST& orig):root(new BSTnode(orig.root.get()->key,orig.root.get()->leftChild,orig.root.get()->rightChild)){}
+    virtual ~BST(){
+    }
     bool Insert(const T &data){
-        BSTnode *comparible = root;
-        while(comparible != NULL){
+        if(root == nullptr){
+            root.reset(new BSTnode(data,nullptr,nullptr));
+            return true;
+        }
+        else if(Contains(data))return false;
+        BSTnode * comparible =root.get();
+        while(comparible != nullptr){
             if(comparible->key > data){
-                if(comparible->leftChild ==NULL){ 
-                    comparible->leftChild = new BSTnode(data,NULL,NULL,comparible);
+                if(comparible->leftChild == nullptr){ 
+                    comparible->leftChild = std::unique_ptr<BSTnode>(new BSTnode(data,nullptr,nullptr));
                     return true;
                 }
-                else comparible = comparible->leftChild;
-                
+                else comparible = comparible->leftChild.get();
             }
             else if(comparible->key < data){
-                if(comparible->rightChild ==NULL){ 
-                    comparible->rightChild = new BSTnode(data,NULL,NULL,comparible);
+                if(comparible->rightChild ==nullptr){ 
+                    comparible->rightChild =  std::unique_ptr<BSTnode>(new BSTnode(data,nullptr,nullptr));
                     return true;
                 }
-                else comparible = comparible->rightChild;
+                else comparible = comparible->rightChild.get();
             }
-            else if(comparible->key == data){return false;} //Return false if duplicate
-        
-       }
+        }
         return false;
     }
     bool Contains(const T &data){
-        BSTnode *comparible = root;
+        BSTnode *comparible = root.get();
         while(comparible != NULL){
              if(comparible->key > data){
-                 comparible = comparible->leftChild;
+                 comparible = comparible->leftChild.get();
              
              }
              else if(comparible->key < data){
-                 comparible = comparible->rightChild;
+                 comparible = comparible->rightChild.get();
              }
              else if(comparible->key == data) return true;
         }
         return false;
     }
-    T *BSTNodeSearch(const T &data){}
+    T *BSTSearch(const T &data){}
     
 
 

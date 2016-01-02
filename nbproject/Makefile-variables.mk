@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-MacOSX
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-MacOSX
-CND_ARTIFACT_NAME_Debug=treeiteratorg
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-MacOSX/treeiteratorg
+CND_ARTIFACT_NAME_Debug=treeiterator
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-MacOSX/treeiterator
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-MacOSX/package
-CND_PACKAGE_NAME_Debug=treeiteratorg.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-MacOSX/package/treeiteratorg.tar
+CND_PACKAGE_NAME_Debug=treeiterator.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-MacOSX/package/treeiterator.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-MacOSX
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-MacOSX
-CND_ARTIFACT_NAME_Release=treeiteratorg
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-MacOSX/treeiteratorg
+CND_ARTIFACT_NAME_Release=treeiterator
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-MacOSX/treeiterator
 CND_PACKAGE_DIR_Release=dist/Release/GNU-MacOSX/package
-CND_PACKAGE_NAME_Release=treeiteratorg.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-MacOSX/package/treeiteratorg.tar
+CND_PACKAGE_NAME_Release=treeiterator.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-MacOSX/package/treeiterator.tar
 #
 # include compiler specific variables
 #
