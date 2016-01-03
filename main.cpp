@@ -18,13 +18,13 @@ int main(int argc, char** argv) {
 
 
     
-    BST<int> tree(1);
+    BST<int> tree(3);
     cout<< "HEY";
     tree.Insert(2);
     tree.Insert(4);
-    tree.Insert(10);
-    tree.Remove(10);
-    cout<< tree.Contains(10);
+    tree.Insert(1);
+    tree.Remove(2);
+   cout<< tree.Contains(1);
         return 0;
 }
 
