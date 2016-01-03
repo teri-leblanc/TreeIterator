@@ -15,8 +15,8 @@ template <class T>
 class  BST {
     struct BSTnode
     {
-        std::unique_ptr<BSTnode> leftChild;
-        std::unique_ptr<BSTnode> rightChild;
+        std::shared_ptr<BSTnode> leftChild;
+        std::shared_ptr<BSTnode> rightChild;
         const T &key;
         BSTnode(const T &_key, BSTnode *_leftChild, BSTnode *_rightChild) : leftChild(_leftChild),rightChild(_rightChild),key(_key){}
     };
@@ -53,6 +53,13 @@ public:
         }
         return false;
     }
+    bool Remove(const T &data){
+        std::shared_ptr<BSTnode> deleteNode(Find(data));
+        if(deleteNode == nullptr) return false;
+        if(deleteNode->leftChild == nullptr && deleteNode->rightChild == nullptr){ deleteNode.reset();}
+
+        return true;
+    }
     bool Contains(const T &data){
         BSTnode *comparible = root.get();
         while(comparible != NULL){
@@ -67,7 +74,19 @@ public:
         }
         return false;
     }
-    T *BSTSearch(const T &data){}
+    std::shared_ptr<BSTnode>  Find(const T &data){
+       std::shared_ptr<BSTnode> comparible = root;
+       while(comparible !=nullptr){
+           if(comparible.get()->key == data) return comparible;
+           else if(comparible.get()->key > data) comparible = comparible.get()->leftChild;
+           else comparible = comparible.get()->rightChild;
+       
+       }
+       return nullptr;
+    
+    
+    
+    }
     
 
 

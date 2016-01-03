@@ -23,7 +23,8 @@ int main(int argc, char** argv) {
     tree.Insert(2);
     tree.Insert(4);
     tree.Insert(10);
-   cout<< tree.Contains(10);
+    tree.Remove(10);
+    cout<< tree.Contains(10);
         return 0;
 }
 
