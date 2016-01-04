@@ -5,6 +5,9 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>BST.h</itemPath>
+      <itemPath>RBT.h</itemPath>
+      <itemPath>TreeIterator.h</itemPath>
+      <itemPath>TreeIteratorVisitor.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -13,6 +16,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>TreeIteratorVisitor.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -42,6 +46,14 @@
       </compileType>
       <item path="BST.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="RBT.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="TreeIterator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="TreeIteratorVisitor.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="TreeIteratorVisitor.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
@@ -66,6 +78,14 @@
         </asmTool>
       </compileType>
       <item path="BST.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="RBT.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="TreeIterator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="TreeIteratorVisitor.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="TreeIteratorVisitor.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>

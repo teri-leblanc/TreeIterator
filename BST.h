@@ -12,7 +12,8 @@
 #include <memory>
 #include <iostream>
 template <class T>
-class  BST {
+class  BST
+{
     struct BSTnode
     {
         std::unique_ptr<BSTnode> leftChild;
@@ -30,7 +31,7 @@ private:
 public:
     BST():root(nullptr){}
     BST(const T &_key):root(new BSTnode(_key)){}
-    BST(const BST& orig):root(new BSTnode(orig.root.get()->key,orig.root.get()->leftChild,orig.root.get()->rightChild)){}
+    BST(const BST& orig):root(new BSTnode(orig.root->key,orig.root->leftChild,orig.root->rightChild)){}
     virtual ~BST(){
     }
     bool Insert(const T &data){
@@ -60,15 +61,15 @@ public:
     }
     bool Remove(const T &data) {
         BSTnode *parentNode = FindParent(data);
-        if (parentNode == nullptr) return false;
-        if (parentNode->leftChild.get()) {
-            if(parentNode->leftChild.get()->key == data)
-                Remove(parentNode->leftChild,parentNode,0);
+        if (!parentNode) return false;
+        if (parentNode->leftChild) {
+            if(parentNode->leftChild->key == data)
+                Remove(parentNode->leftChild,*parentNode,0);
                 return true;
         }
         if(parentNode->rightChild.get()){
             if(parentNode->rightChild.get()->key == data)
-                Remove(parentNode->rightChild,parentNode,1);
+                Remove(parentNode->rightChild,*parentNode,1);
                 return true;
         }
         return true;
@@ -94,20 +95,23 @@ private:
 // The following function is an internal helper that deletes the unique_ptr before its scope is up.
 // side = 0 // This means that the node to be deleted is the left child of the parent
 // side = 1 // This means that the node to be deleted is the right child of the parent
-    void Remove(std::unique_ptr<BSTnode> &deleteNode, BSTnode * parentNode,bool side){
-        if(deleteNode.get()->leftChild == nullptr && deleteNode.get()->rightChild == nullptr)deleteNode.release();  // Remove Leaf
-        else if(deleteNode.get()->leftChild == nullptr){                                                            // Remove node with 1 child
-            if(side) parentNode->rightChild = std::move(deleteNode.get()->rightChild);
-            else parentNode->leftChild = std::move(deleteNode.get()->rightChild);
+    void Remove(std::unique_ptr<BSTnode> &deleteNode, BSTnode &parentNode,bool side){
+        if(deleteNode->leftChild == nullptr && deleteNode->rightChild == nullptr){
+            if(side) parentNode.rightChild = nullptr;
+            else parentNode.leftChild = nullptr;
+        
+        }  // Remove Leaf
+        else if(deleteNode->leftChild == nullptr){                                                            // Remove node with 1 child
+            if(side) parentNode.rightChild = std::move(deleteNode->rightChild);
+            else parentNode.leftChild = std::move(deleteNode->rightChild);
         }
-        else if(deleteNode.get()->rightChild == nullptr){
-            if(side) parentNode->rightChild = std::move(deleteNode.get()->leftChild);
-            else parentNode->leftChild = std::move(deleteNode.get()->leftChild);
+        else if(deleteNode->rightChild == nullptr){
+            if(side) parentNode.rightChild = std::move(deleteNode->leftChild);
+            else parentNode.leftChild = std::move(deleteNode->leftChild);
         }
         else{
-            BSTnode * minParent = FindParent(FindMin(deleteNode.get()->rightChild));
-            deleteNode.reset(new BSTnode(minParent->leftChild.get()->key,nullptr,deleteNode.get()->rightChild.release()));
-            //delete minParent->leftChild.release();
+            BSTnode * minParent = FindParent(FindMin(deleteNode->rightChild));
+            deleteNode.reset(new BSTnode(minParent->leftChild->key,nullptr,deleteNode->rightChild.release()));
         }                                                                                                      // Remove node with 2 children
     }
 // The following function is an internal helper that returns a pointer to the parent node of a specific node
