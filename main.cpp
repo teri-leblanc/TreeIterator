@@ -1,43 +1,46 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 /* 
  * File:   main.cpp
- * Author: Teri
+ * Author: Terianne Bolding
  *
- * Created on January 2, 2016, 9:42 AM
+ * Created on January 4, 2016, 4:44 PM
  */
 
 #include <cstdlib>
-#include "BST.h"
 #include <iostream>
- #include <stdio.h>
+#include "BSTstructure.h"
+#include "PreOrder.h"
+#include "PostOrder.h"
+#include "InOrder.h"
 using namespace std;
 
 /*
  * 
  */
 int main(int argc, char** argv) {
-
-
-    
-    BST<int> tree(5);
-    cout<<"Building an integer Tree with root node of 5\n";
-    tree.Insert(2);
-    cout<<"Inserting 2\n";
-    tree.Insert(4);
-     cout<<"Inserting 4\n";   
-    tree.Insert(1);
-        cout<<"Inserting 1\n";
-    tree.Remove(2);
-        cout<<"Removing 2\n";
-        cout<<"Looking for 2\n";
-   if(tree.Contains(2))cout<<"Found 2\n";
-   else cout<<"Did not find 2\n";
-   cout<<"Looking for 4\n";
-   if(tree.Contains(4))cout<<"Found 4\n";
-   else cout<<"Did not find 4\n";
-   cout<<"Looking for 1\n";
-   if(tree.Contains(1))cout<<"Found 1\n";
-   else cout<<"Did not find 1\n";
-   
-        return 0;
+    TreeIterator<int> *inorder = new InOrder<int>();
+    TreeIterator<int> *postorder = new PostOrder<int>();
+    TreeIterator<int> *preorder = new PreOrder<int>();
+    TwoAry<int> *twotree = new BSTstructure<int>();
+    twotree->Insert(10);
+    twotree->Insert(8);
+    twotree->Insert(9);
+    twotree->Insert(7);
+    twotree->Insert(12);
+    twotree->Insert(11);
+    twotree->Insert(13);
+    twotree->Accept(*inorder);
+    twotree->Accept(*postorder);
+    twotree->Accept(*preorder);
+    delete inorder;
+    delete postorder;
+    delete preorder;
+    delete twotree;
+    return 0;
 }
 

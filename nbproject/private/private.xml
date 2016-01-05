@@ -7,7 +7,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/teri/NetBeansProjects/TreeIterator/BST.h</file>
+            <file>file:/home/teri/NetBeansProjects/TreeIteratorVisitor/TreeIterator.h</file>
+            <file>file:/home/teri/NetBeansProjects/TreeIteratorVisitor/PreOrder.h</file>
+            <file>file:/home/teri/NetBeansProjects/TreeIteratorVisitor/TreeIterator.cpp</file>
+            <file>file:/home/teri/NetBeansProjects/TreeIteratorVisitor/TwoAry.h</file>
+            <file>file:/home/teri/NetBeansProjects/TreeIteratorVisitor/PostOrder.cpp</file>
+            <file>file:/home/teri/NetBeansProjects/TreeIteratorVisitor/BSTstructure.h</file>
+            <file>file:/home/teri/NetBeansProjects/TreeIteratorVisitor/PostOrder.h</file>
+            <file>file:/home/teri/NetBeansProjects/TreeIteratorVisitor/PreOrder.cpp</file>
+            <file>file:/home/teri/NetBeansProjects/TreeIteratorVisitor/InOrder.h</file>
+            <file>file:/home/teri/NetBeansProjects/TreeIteratorVisitor/TreeStructure.h</file>
+            <file>file:/home/teri/NetBeansProjects/TreeIteratorVisitor/InOrder.cpp</file>
         </group>
     </open-files>
 </project-private>

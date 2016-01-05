@@ -4,10 +4,13 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>BST.h</itemPath>
-      <itemPath>RBT.h</itemPath>
+      <itemPath>BSTstructure.h</itemPath>
+      <itemPath>InOrder.h</itemPath>
+      <itemPath>PostOrder.h</itemPath>
+      <itemPath>PreOrder.h</itemPath>
       <itemPath>TreeIterator.h</itemPath>
-      <itemPath>TreeIteratorVisitor.h</itemPath>
+      <itemPath>TwoAry.h</itemPath>
+      <itemPath>TwoTreeNode.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -16,7 +19,6 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>TreeIteratorVisitor.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -44,15 +46,19 @@
           <standard>8</standard>
         </ccTool>
       </compileType>
-      <item path="BST.h" ex="false" tool="3" flavor2="0">
+      <item path="BSTstructure.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="RBT.h" ex="false" tool="3" flavor2="0">
+      <item path="InOrder.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PostOrder.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PreOrder.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="TreeIterator.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="TreeIteratorVisitor.cpp" ex="false" tool="1" flavor2="0">
+      <item path="TwoAry.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="TreeIteratorVisitor.h" ex="false" tool="3" flavor2="0">
+      <item path="TwoTreeNode.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -69,6 +75,7 @@
         </cTool>
         <ccTool>
           <developmentMode>5</developmentMode>
+          <standard>8</standard>
         </ccTool>
         <fortranCompilerTool>
           <developmentMode>5</developmentMode>
@@ -77,15 +84,19 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="BST.h" ex="false" tool="3" flavor2="0">
+      <item path="BSTstructure.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="RBT.h" ex="false" tool="3" flavor2="0">
+      <item path="InOrder.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PostOrder.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PreOrder.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="TreeIterator.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="TreeIteratorVisitor.cpp" ex="false" tool="1" flavor2="0">
+      <item path="TwoAry.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="TreeIteratorVisitor.h" ex="false" tool="3" flavor2="0">
+      <item path="TwoTreeNode.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>

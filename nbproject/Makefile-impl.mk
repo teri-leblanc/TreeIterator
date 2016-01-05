@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=TreeIterator
+PROJECTNAME=TreeIteratorVisitor
 
 # Active Configuration
 DEFAULTCONF=Debug

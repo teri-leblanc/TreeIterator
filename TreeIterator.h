@@ -8,21 +8,24 @@
  * File:   TreeIterator.h
  * Author: teri
  *
+ * Created on January 4, 2016, 4:45 PM
  */
 
 #ifndef TREEITERATOR_H
 #define TREEITERATOR_H
+#include "TwoAry.h"
+
 template <class T>
-class TreeIterator {
+class TreeIterator{
 public:
-    TreeIterator();
-    TreeIterator(const TreeIterator& orig);
-    virtual ~TreeIterator();
-    bool HasNext(){}
-    T Next(){}
+    TreeIterator(){}
+    virtual ~TreeIterator(){}
+    virtual void TraverseTree(const TwoAry<T> &tree)const=0;
+   // virtual void TraverseTree(long &threeAry)=0;
 private:
+    virtual void TraverseRecurs(const std::unique_ptr<TwoTreeNode<T>> &root)const =0;
 
 };
 
-#endif /* TREEITERATOR_H */
+#endif /* TREEITERATOR_H*/
 
