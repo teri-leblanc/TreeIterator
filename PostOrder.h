@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /* 
  * File:   PostOrder.h
- * Author: teri
+ * Author:Terianne Bolding
  *
- * Created on January 4, 2016, 4:47 PM
  */
 
 #ifndef POSTORDER_H
@@ -18,10 +12,6 @@
 template <typename T>
 class PostOrder : public TreeIterator<T>
 {
-//2ary Tree
-
-//virtual void TraverseTree(long &threeAry){} //3ary Tree
-
 public:
     PostOrder(){}
     virtual ~PostOrder(){}
