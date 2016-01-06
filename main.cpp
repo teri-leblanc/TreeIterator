@@ -55,6 +55,7 @@ int main(int argc, char** argv) {
     delete postorder;
     delete preorder;
     delete twotree;
+    delete threetree;
     return 0;
 }
 
