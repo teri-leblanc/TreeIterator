@@ -44,6 +44,11 @@ int main(int argc, char** argv) {
     threetree->Insert(10);
     threetree->Insert(19);
     threetree->Insert(12);
+        cout<<"\nStarting 3-Ary section\n";
+    threetree->Accept(*inorder);
+    threetree->Accept(*postorder);
+    threetree->Accept(*preorder);
+    
     
     
     delete inorder;

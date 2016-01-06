@@ -15,9 +15,11 @@
 #define THREEARY_H
 #include "ThreeTreeNode.h"
 template <class T>
+class TreeIterator;
+template <class T>
 class ThreeAry{
     private:    
-        std::unique_ptr<ThreeTreeNode<T>> root;
+
         void Insert(std::unique_ptr<ThreeTreeNode<T>> &node, T const &data){
             if(!node)node.reset(new ThreeTreeNode<T>(data));
             else if(!node->leftChild) Insert(node->leftChild,data);
@@ -25,7 +27,7 @@ class ThreeAry{
             else if (!node->rightChild) Insert(node->rightChild,data);
         }
     public:
-
+        std::unique_ptr<ThreeTreeNode<T>> root;
     ThreeAry(){}
     ThreeAry(const int &_key):root(new ThreeTreeNode<T>(_key)){}
     virtual ~ThreeAry(){}
@@ -35,7 +37,10 @@ class ThreeAry{
     }
     virtual bool Remove(const T &data){}
     virtual bool Contains(const T &data){}
-    virtual void Accept(TreeIterator<T> &visitor){}
+    virtual void Accept(TreeIterator<T> &visitor){
+        visitor.TraverseTree(*this);
+    
+    }
 };
 
 
