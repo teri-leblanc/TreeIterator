@@ -14,6 +14,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "BSTstructure.h"
+#include "ThreeAry.h"
 #include "PreOrder.h"
 #include "PostOrder.h"
 #include "InOrder.h"
@@ -37,6 +38,14 @@ int main(int argc, char** argv) {
     twotree->Accept(*inorder);
     twotree->Accept(*postorder);
     twotree->Accept(*preorder);
+
+    ThreeAry<int> *threetree= new ThreeAry<int>();
+    threetree->Insert(20);
+    threetree->Insert(10);
+    threetree->Insert(19);
+    threetree->Insert(12);
+    
+    
     delete inorder;
     delete postorder;
     delete preorder;
