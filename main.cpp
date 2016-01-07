@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 /* 
  * File:   main.cpp
  * Author: Terianne Bolding
  *
- * Created on January 4, 2016, 4:44 PM
+
  */
 
 #include <cstdlib>
@@ -24,6 +20,7 @@ using namespace std;
  * 
  */
 int main(int argc, char** argv) {
+    int a = 20;
     TreeIterator<int> *inorder = new InOrder<int>();
     TreeIterator<int> *postorder = new PostOrder<int>();
     TreeIterator<int> *preorder = new PreOrder<int>();
@@ -44,11 +41,24 @@ int main(int argc, char** argv) {
     threetree->Insert(10);
     threetree->Insert(19);
     threetree->Insert(12);
+    threetree->Insert(1);
+    threetree->Insert(2);
+    threetree->Insert(3);
+    threetree->Insert(4);
+    threetree->Insert(5);
+    threetree->Insert(6);
+    threetree->Insert(7);
+    threetree->Insert(8);
+    threetree->Insert(9);
+    threetree->Insert(13);
+    threetree->Insert(14);
+    threetree->Insert(15);
+   threetree->Remove(1);
+
         cout<<"\nStarting 3-Ary section\n";
     threetree->Accept(*inorder);
     threetree->Accept(*postorder);
     threetree->Accept(*preorder);
-    
     
     
     delete inorder;

@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux
-CND_ARTIFACT_NAME_Debug=treeiteratorvisitor
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/treeiteratorvisitor
+CND_ARTIFACT_NAME_Debug=treeiterator
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/treeiterator
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux/package
-CND_PACKAGE_NAME_Debug=treeiteratorvisitor.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/treeiteratorvisitor.tar
+CND_PACKAGE_NAME_Debug=treeiterator.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/treeiterator.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux
-CND_ARTIFACT_NAME_Release=treeiteratorvisitor
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/treeiteratorvisitor
+CND_ARTIFACT_NAME_Release=treeiterator
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/treeiterator
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
-CND_PACKAGE_NAME_Release=treeiteratorvisitor.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/treeiteratorvisitor.tar
+CND_PACKAGE_NAME_Release=treeiterator.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/treeiterator.tar
 #
 # include compiler specific variables
 #

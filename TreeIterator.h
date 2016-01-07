@@ -1,7 +1,7 @@
 
 /* 
  * File:   TreeIterator.h
- * Author: teri
+ * Author: Terianne Bolding
  *
 
  */
