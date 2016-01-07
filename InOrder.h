@@ -24,15 +24,13 @@ public:
     }
 private:
     virtual void TraverseRecurs(const std::unique_ptr<TwoTreeNode<T>> &root)const{
-            if(!root)return;
+        if(!root)return;
         TraverseRecurs(root->leftChild);
         std::cout<<"\n"<<root->key;
         TraverseRecurs(root->rightChild);
-
     }
     virtual void TraverseRecurs(const std::unique_ptr<ThreeTreeNode<T>> &root)const{
         std::cout<<"No InOrder Operation available for this tree\n";
-
     }
 };
 

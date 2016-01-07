@@ -22,10 +22,6 @@ class TwoAry{
     virtual bool Remove(const T &data)=0;
     virtual bool Contains(const T &data)=0;
     virtual void Accept(TreeIterator<T> &visitor) = 0;
-    
-
 };
-
-
 #endif /* TWOARY_H */
 

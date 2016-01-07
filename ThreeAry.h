@@ -18,7 +18,7 @@ template <class T>
 class TreeIterator;
 template <class T>
 class ThreeAry{
-    private:
+private:
     //Internal recursive function called by the public Insert()
     void Insert(std::unique_ptr<ThreeTreeNode<T>> &node, T const &data){
         if(!node)node.reset(new ThreeTreeNode<T>(data));

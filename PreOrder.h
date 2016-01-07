@@ -15,7 +15,6 @@
 template <class T>
 class PreOrder : public TreeIterator<T>
 {
-
 public:
     PreOrder():TreeIterator<T>(){}
     virtual ~PreOrder(){}
@@ -40,9 +39,7 @@ private:
         TraverseRecurs(root->leftChild);
         TraverseRecurs(root->middleChild);
         TraverseRecurs(root->rightChild);
-
     }
-
 };
 
 #endif /* PREORDER_H */

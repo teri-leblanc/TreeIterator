@@ -21,7 +21,6 @@ public:
 private:
     virtual void TraverseRecurs(const std::unique_ptr<TwoTreeNode<T>> &root)const =0;
     virtual void TraverseRecurs(const std::unique_ptr<ThreeTreeNode<T>> &root)const =0;
-
 };
 
 #endif /* TREEITERATOR_H*/
