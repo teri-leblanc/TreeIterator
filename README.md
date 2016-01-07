@@ -1,5 +1,7 @@
 # TreeIterator
-Collection of tree data structures and iterators for each.
+Collection of tree data structures that utalizes the visitor design pattern to traverse a tree in postorder, preorder, and inorder.
+A file is included called TreeIteratorDiagram that contains a basic UML Diagram that shows the srtucture of the project.
+
 
 #TwoAry.h
 This is a template interface to use when implementing tree data structures where each node in the tree can have 0 to 2 children.
@@ -27,4 +29,3 @@ This is a concrete implementation of the TreeIterator interface meant to travers
 #InOrder.h
 This is a concrete implementation of the TreeIterator interface meant to traverse an entire tree in order and print it out as it goes.
 
-A file is included called TreeIteratorDiagram that contains a basic UML Diagram that shows the srtucture of the project.
