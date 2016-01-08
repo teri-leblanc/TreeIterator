@@ -25,7 +25,7 @@ public:
         return true;
     }
 
-    virtual bool Remove(const T &data) override {
+    virtual bool Remove(const T &data){
         TwoTreeNode<T>  *parentNode = FindParent(data);
         if (!parentNode) return false;
         else if (parentNode->leftChild) {
