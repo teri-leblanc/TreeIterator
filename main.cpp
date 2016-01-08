@@ -16,15 +16,13 @@
 #include "InOrder.h"
 using namespace std;
 
-/*
- * 
- */
 int main(int argc, char** argv) {
-    int a = 20;
+    // Create Concrete Visitor Objects
     TreeIterator<int> *inorder = new InOrder<int>();
     TreeIterator<int> *postorder = new PostOrder<int>();
     TreeIterator<int> *preorder = new PreOrder<int>();
-    TwoAry<int> *twotree = new BSTstructure<int>();
+    // Create Binary Search Tree object
+    TwoAry<int> *twotree = new BSTstructure<int>(2);
     twotree->Insert(10);
     twotree->Insert(8);
     twotree->Insert(9);
@@ -32,11 +30,12 @@ int main(int argc, char** argv) {
     twotree->Insert(12);
     twotree->Insert(11);
     twotree->Insert(13);
+    // Traverse the BST inorder, postorder, preorder
     twotree->Accept(*inorder);
     twotree->Accept(*postorder);
     twotree->Accept(*preorder);
-
-    ThreeAry<int> *threetree= new ThreeAry<int>();
+    //Create a 3-ary tree object
+    ThreeAry<int> *threetree= new ThreeAry<int>(3);
     threetree->Insert(20);
     threetree->Insert(10);
     threetree->Insert(19);
@@ -53,14 +52,13 @@ int main(int argc, char** argv) {
     threetree->Insert(13);
     threetree->Insert(14);
     threetree->Insert(15);
-   threetree->Remove(1);
-
-        cout<<"\nStarting 3-Ary section\n";
+    threetree->Remove(1);
+    //Traverse the tree inorder, postorder,preorder
+    cout<<"\nStarting 3-Ary section\n";
     threetree->Accept(*inorder);
     threetree->Accept(*postorder);
     threetree->Accept(*preorder);
-    
-    
+    //Clean up
     delete inorder;
     delete postorder;
     delete preorder;

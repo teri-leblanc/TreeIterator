@@ -20,7 +20,7 @@ public:
         TraverseRecurs(tree.root);
     } 
     virtual void TraverseTree(const ThreeAry<T> &tree){
-    std::cout<<"No InOrder Operation available for this tree\n";
+        std::cout<<"No InOrder Operation available for this tree\n";
     }
 private:
     virtual void TraverseRecurs(const std::unique_ptr<TwoTreeNode<T>> &root)const{

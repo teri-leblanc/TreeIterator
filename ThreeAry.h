@@ -88,9 +88,9 @@ private:
 
 public:
     std::unique_ptr<ThreeTreeNode<T>> root;
-    ThreeAry(){}
+    ThreeAry():root(nullptr){}
     ThreeAry(const int &_key):root(new ThreeTreeNode<T>(_key)){}
-    virtual ~ThreeAry(){}
+
     //Return true if inserted intp the tree, false otherwise
     virtual bool Insert(const T &data){
          if(!this->root) this->root.reset(new ThreeTreeNode<T> (data));
