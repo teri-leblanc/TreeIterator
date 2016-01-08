@@ -19,7 +19,7 @@ public:
         std::cout<<"\nTraversing 2Ary Tree in InOrder";
         TraverseRecurs(tree.root);
     } 
-    virtual void TraverseTree(const ThreeAry<T> &tree){
+    virtual void TraverseTree(const ThreeAry<T> &tree)const{
         std::cout<<"No InOrder Operation available for this tree\n";
     }
 private:

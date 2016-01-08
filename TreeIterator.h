@@ -17,7 +17,7 @@ public:
     TreeIterator(){}
     virtual ~TreeIterator(){}
     virtual void TraverseTree(const TwoAry<T> &tree)const=0;
-    virtual void TraverseTree(const ThreeAry<T> &tree)=0;
+    virtual void TraverseTree(const ThreeAry<T> &tree)const=0;
 private:
     virtual void TraverseRecurs(const std::unique_ptr<TwoTreeNode<T>> &root)const =0;
     virtual void TraverseRecurs(const std::unique_ptr<ThreeTreeNode<T>> &root)const =0;

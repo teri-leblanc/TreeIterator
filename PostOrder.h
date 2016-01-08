@@ -19,7 +19,7 @@ public:
         std::cout<<"\nTraversing 2-Ary Tree in PostOrder";
         TraverseRecurs(tree.root);
     } 
-    virtual void TraverseTree(const ThreeAry<T> &tree){
+    virtual void TraverseTree(const ThreeAry<T> &tree)const{
         std::cout<<"\nTraversing 3-Ary Tree in PostOrder";
         TraverseRecurs(tree.root);
     }

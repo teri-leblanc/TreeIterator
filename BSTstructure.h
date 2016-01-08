@@ -14,7 +14,6 @@ class BSTstructure : public TwoAry<T>{
 public:
     BSTstructure():TwoAry<T>(){}
     BSTstructure(const int &_key):TwoAry<T>(_key){}
-    
     virtual void Accept(TreeIterator<T> &visitor){
         visitor.TraverseTree(*this);
     }
@@ -42,7 +41,7 @@ public:
         return true;
     }
     
-    virtual bool Contains(const T &data) override{
+    virtual bool Contains(const T &data){
         TwoTreeNode<T> *comparable = TwoAry<T>::root.get();
         while(comparable != nullptr){
              if(comparable->key > data) comparable = comparable->leftChild.get();
