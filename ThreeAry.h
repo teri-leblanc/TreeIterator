@@ -19,6 +19,8 @@ template <class T>
 class ThreeAry{
 private:
     //Internal recursive function called by the public Insert()
+    //Recursively searches through the tree until it finds the next open spot in the tree
+    //The tree is filled from left to right.
     void Insert(std::unique_ptr<ThreeTreeNode<T>> &node, T const &data){
         if(!node)node.reset(new ThreeTreeNode<T>(data));
         else if(node->rightChild){ //If the branch is full - check lower layers
@@ -34,16 +36,18 @@ private:
     }
     //Internal recursive remove function. Called by the public Remove() function.)
     void Remove(std::unique_ptr<ThreeTreeNode<T>> &node){
-           // leaf Node
-       std::unique_ptr<ThreeTreeNode<T>> &leaf = FindLeaf(root);
+        // leaf Node
+        // NOTE: Because of the nature of the tree being self balancing, a leaf node
+        //       cannot just be deleted, it must be replaced by the outer most leaf to
+        //       keep the tree balanced.
+        std::unique_ptr<ThreeTreeNode<T>> &leaf = FindLeaf(root);
         if(!node->leftChild){
             if(node->key != leaf->key) node.reset(leaf.release());
             else node.reset(nullptr);
         }
-            
-           // One Child
+        // One Child
         else if(!node->middleChild)node.reset(node->leftChild.release());
-           // Two Children
+        // Two Children
         else if(!node->rightChild){
                 node->middleChild->leftChild.reset(node->leftChild.release());
                 node.reset(node->middleChild.release());
@@ -82,7 +86,7 @@ private:
     //Return true if a node exists with the data and false otherwise    
     bool Contains(std::unique_ptr<ThreeTreeNode<T>> &parent,const T &data){
         if(!parent)return false;
-        else if(parent->key == data) return true;
+        else if(parent->key == data)return true;
         else{
             if(Contains(parent->leftChild,data))return true;
             if(Contains(parent->middleChild,data))return true;

@@ -17,7 +17,7 @@ class ThreeTreeNode {
     std::unique_ptr<ThreeTreeNode> middleChild;
     std::unique_ptr<ThreeTreeNode> rightChild;
     const T &key;
-    ThreeTreeNode(const T &_key, ThreeTreeNode  *_leftChild,ThreeTreeNode *_middleChild, ThreeTreeNode *_rightChild) : leftChild(_leftChild),middleChild(_middleChild),rightChild(_rightChild),key(_key){}
+    ThreeTreeNode(const T &_key, ThreeTreeNode  *_leftChild, ThreeTreeNode *_middleChild, ThreeTreeNode *_rightChild) : leftChild(_leftChild),middleChild(_middleChild),rightChild(_rightChild),key(_key){}
     ThreeTreeNode(const T &_key): key(_key),leftChild(nullptr),middleChild(nullptr),rightChild(nullptr){}
 };
 #endif /* THREETREENODE_H */
