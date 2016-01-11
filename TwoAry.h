@@ -8,10 +8,9 @@
 #ifndef TWOARY_H
 #define TWOARY_H
 #include "TwoTreeNode.h"
+#include "TreeIterator.h"
 #include <iostream>
 #include <cstdlib>
-template <class T>
-class TreeIterator;
 template <class T>
 class TwoAry{
     public:

@@ -22,7 +22,7 @@ int main(int argc, char** argv) {
     TreeIterator<int> *postorder = new PostOrder<int>();
     TreeIterator<int> *preorder = new PreOrder<int>();
     // Create Binary Search Tree object
-    TwoAry<int> *twotree = new BSTstructure<int>(2);
+    TwoAry<int> *twotree = new BSTstructure<int>();
     twotree->Insert(10);
     twotree->Insert(8);
     twotree->Insert(9);
@@ -30,6 +30,7 @@ int main(int argc, char** argv) {
     twotree->Insert(12);
     twotree->Insert(11);
     twotree->Insert(13);
+    twotree->Remove(13);
     // Traverse the BST inorder, postorder, preorder
     twotree->Accept(*inorder);
     twotree->Accept(*postorder);
