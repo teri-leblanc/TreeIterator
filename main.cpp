@@ -30,13 +30,12 @@ int main(int argc, char** argv) {
     twotree->Insert(12);
     twotree->Insert(11);
     twotree->Insert(13);
-    twotree->Remove(13);
     // Traverse the BST inorder, postorder, preorder
     twotree->Accept(*inorder);
     twotree->Accept(*postorder);
     twotree->Accept(*preorder);
     //Create a 3-ary tree object
-    ThreeAry<int> *threetree= new ThreeAry<int>(3);
+    ThreeAry<int> *threetree= new ThreeAry<int>();
     threetree->Insert(20);
     threetree->Insert(10);
     threetree->Insert(19);
@@ -53,7 +52,9 @@ int main(int argc, char** argv) {
     threetree->Insert(13);
     threetree->Insert(14);
     threetree->Insert(15);
-    threetree->Remove(1);
+    threetree->Remove(20);
+    threetree->Remove(13);
+    threetree->Remove(6);
     //Traverse the tree inorder, postorder,preorder
     cout<<"\nStarting 3-Ary section\n";
     threetree->Accept(*inorder);

@@ -14,8 +14,7 @@
 #define THREEARY_H
 #include "ThreeTreeNode.h"
 #include <exception>
-template <class T>
-class TreeIterator;
+#include "TreeIterator.h"
 template <class T>
 class ThreeAry{
 private:
@@ -36,7 +35,12 @@ private:
     //Internal recursive remove function. Called by the public Remove() function.)
     void Remove(std::unique_ptr<ThreeTreeNode<T>> &node){
            // leaf Node
-        if(!node->leftChild)node.reset(nullptr);
+       std::unique_ptr<ThreeTreeNode<T>> &leaf = FindLeaf(root);
+        if(!node->leftChild){
+            if(node->key != leaf->key) node.reset(leaf.release());
+            else node.reset(nullptr);
+        }
+            
            // One Child
         else if(!node->middleChild)node.reset(node->leftChild.release());
            // Two Children
@@ -46,7 +50,6 @@ private:
         }
         // Three Children
         else{
-            std::unique_ptr<ThreeTreeNode<T>> &leaf = FindLeaf(node);
             if(leaf != node->leftChild)leaf->leftChild.reset(node->leftChild.release());
             if(leaf != node->middleChild)leaf->middleChild.reset(node->middleChild.release());
             if(leaf != node->rightChild) leaf->rightChild.reset(node->rightChild.release());
@@ -58,11 +61,13 @@ private:
         if(!node->leftChild)return node;
         else if(node->rightChild){
             if(node->rightChild->leftChild && !node->rightChild->rightChild) FindLeaf(node->rightChild);
-            else if(node->middleChild->leftChild && node->middleChild->leftChild) FindLeaf(node->middleChild);
+            else if(node->middleChild->leftChild && !node->middleChild->leftChild) FindLeaf(node->middleChild);
             else if(!node->leftChild->leftChild) FindLeaf(node->rightChild);
             else FindLeaf(node->leftChild);
         }
-        else if(node->middleChild)if(node->middleChild->leftChild && node->middleChild->leftChild) FindLeaf(node->middleChild);
+        else if(node->middleChild){
+            FindLeaf(node->middleChild);
+        }
         else FindLeaf(node->leftChild);   
     }
     //Find the node in the tree that contains the data and return that node
@@ -91,7 +96,7 @@ public:
     ThreeAry():root(nullptr){}
     ThreeAry(const int &_key):root(new ThreeTreeNode<T>(_key)){}
 
-    //Return true if inserted intp the tree, false otherwise
+    //Return true if inserted into the tree, false otherwise
     virtual bool Insert(const T &data){
          if(!this->root) this->root.reset(new ThreeTreeNode<T> (data));
          else if(Contains(data)) return false;

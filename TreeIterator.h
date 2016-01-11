@@ -8,10 +8,12 @@
 
 #ifndef TREEITERATOR_H
 #define TREEITERATOR_H
-//#include "TwoAry.h"
-#include "ThreeAry.h"
+#include "TwoTreeNode.h"
+#include "ThreeTreeNode.h"
 template <class T>
 class TwoAry;
+template <class T>
+class ThreeAry;
 template <class T>
 class TreeIterator{
 public:
