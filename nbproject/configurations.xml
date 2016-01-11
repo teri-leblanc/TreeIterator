@@ -39,6 +39,18 @@
                      kind="TEST">
         <itemPath>tests/InOrder_Test.cpp</itemPath>
       </logicalFolder>
+      <logicalFolder name="f4"
+                     displayName="PostOrder_Test"
+                     projectFiles="true"
+                     kind="TEST">
+        <itemPath>tests/PostOrder_Test.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f5"
+                     displayName="PreOrder_Test"
+                     projectFiles="true"
+                     kind="TEST">
+        <itemPath>tests/PreOrder_Test.cpp</itemPath>
+      </logicalFolder>
       <logicalFolder name="f3"
                      displayName="ThreeAry_Test"
                      projectFiles="true"
@@ -129,11 +141,45 @@
           <output>${TESTDIR}/TestFiles/f3</output>
         </linkerTool>
       </folder>
+      <folder path="TestFiles/f4">
+        <cTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f4</output>
+        </linkerTool>
+      </folder>
+      <folder path="TestFiles/f5">
+        <cTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f5</output>
+        </linkerTool>
+      </folder>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="tests/BSTstructure_Test.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="tests/InOrder_Test.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/PostOrder_Test.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/PreOrder_Test.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="tests/ThreeAry_Test.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -222,11 +268,45 @@
           <output>${TESTDIR}/TestFiles/f3</output>
         </linkerTool>
       </folder>
+      <folder path="TestFiles/f4">
+        <cTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f4</output>
+        </linkerTool>
+      </folder>
+      <folder path="TestFiles/f5">
+        <cTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f5</output>
+        </linkerTool>
+      </folder>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="tests/BSTstructure_Test.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="tests/InOrder_Test.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/PostOrder_Test.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/PreOrder_Test.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="tests/ThreeAry_Test.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -44,12 +44,16 @@ TESTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tests
 TESTFILES= \
 	${TESTDIR}/TestFiles/f2 \
 	${TESTDIR}/TestFiles/f1 \
+	${TESTDIR}/TestFiles/f4 \
+	${TESTDIR}/TestFiles/f5 \
 	${TESTDIR}/TestFiles/f3
 
 # Test Object Files
 TESTOBJECTFILES= \
 	${TESTDIR}/tests/BSTstructure_Test.o \
 	${TESTDIR}/tests/InOrder_Test.o \
+	${TESTDIR}/tests/PostOrder_Test.o \
+	${TESTDIR}/tests/PreOrder_Test.o \
 	${TESTDIR}/tests/ThreeAry_Test.o
 
 # C Compiler Flags
@@ -96,6 +100,14 @@ ${TESTDIR}/TestFiles/f1: ${TESTDIR}/tests/InOrder_Test.o ${OBJECTFILES:%.o=%_nom
 	${MKDIR} -p ${TESTDIR}/TestFiles
 	${LINK.cc}   -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS} 
 
+${TESTDIR}/TestFiles/f4: ${TESTDIR}/tests/PostOrder_Test.o ${OBJECTFILES:%.o=%_nomain.o}
+	${MKDIR} -p ${TESTDIR}/TestFiles
+	${LINK.cc}   -o ${TESTDIR}/TestFiles/f4 $^ ${LDLIBSOPTIONS} 
+
+${TESTDIR}/TestFiles/f5: ${TESTDIR}/tests/PreOrder_Test.o ${OBJECTFILES:%.o=%_nomain.o}
+	${MKDIR} -p ${TESTDIR}/TestFiles
+	${LINK.cc}   -o ${TESTDIR}/TestFiles/f5 $^ ${LDLIBSOPTIONS} 
+
 ${TESTDIR}/TestFiles/f3: ${TESTDIR}/tests/ThreeAry_Test.o ${OBJECTFILES:%.o=%_nomain.o}
 	${MKDIR} -p ${TESTDIR}/TestFiles
 	${LINK.cc}   -o ${TESTDIR}/TestFiles/f3 $^ ${LDLIBSOPTIONS} 
@@ -111,6 +123,18 @@ ${TESTDIR}/tests/InOrder_Test.o: tests/InOrder_Test.cpp
 	${MKDIR} -p ${TESTDIR}/tests
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/InOrder_Test.o tests/InOrder_Test.cpp
+
+
+${TESTDIR}/tests/PostOrder_Test.o: tests/PostOrder_Test.cpp 
+	${MKDIR} -p ${TESTDIR}/tests
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/PostOrder_Test.o tests/PostOrder_Test.cpp
+
+
+${TESTDIR}/tests/PreOrder_Test.o: tests/PreOrder_Test.cpp 
+	${MKDIR} -p ${TESTDIR}/tests
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/PreOrder_Test.o tests/PreOrder_Test.cpp
 
 
 ${TESTDIR}/tests/ThreeAry_Test.o: tests/ThreeAry_Test.cpp 
@@ -138,6 +162,8 @@ ${OBJECTDIR}/main_nomain.o: ${OBJECTDIR}/main.o main.cpp
 	then  \
 	    ${TESTDIR}/TestFiles/f2 || true; \
 	    ${TESTDIR}/TestFiles/f1 || true; \
+	    ${TESTDIR}/TestFiles/f4 || true; \
+	    ${TESTDIR}/TestFiles/f5 || true; \
 	    ${TESTDIR}/TestFiles/f3 || true; \
 	else  \
 	    ./${TEST} || true; \
