@@ -16,7 +16,7 @@ class TwoAry{
     public:
     std::unique_ptr<TwoTreeNode<T>> root;
     TwoAry() :root(nullptr){}
-    TwoAry(const int &_key):root(new TwoTreeNode<T>(_key)){}
+    TwoAry(const T &_key):root(new TwoTreeNode<T>(_key)){}
     virtual bool Insert(const T &data)=0;
     virtual bool Remove(const T &data)=0;
     virtual bool Contains(const T &data)=0;

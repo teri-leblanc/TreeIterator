@@ -13,7 +13,7 @@ template <class T>
 class BSTstructure : public TwoAry<T>{
 public:
     BSTstructure():TwoAry<T>(){}
-    BSTstructure(const int &_key):TwoAry<T>(_key){}
+    BSTstructure(const T &_key):TwoAry<T>(_key){}
     virtual void Accept(TreeIterator<T> &visitor){
         visitor.TraverseTree(*this);
     }
