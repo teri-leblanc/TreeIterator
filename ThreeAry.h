@@ -15,14 +15,16 @@
 #include "ThreeTreeNode.h"
 #include "TreeIterator.h"
 #include <memory>
+using std::unique_ptr;
+
 template <class T>
 class ThreeAry{
 private:
-     std::unique_ptr<ThreeTreeNode<T>> root;
+     unique_ptr<ThreeTreeNode<T>> root;
     //Internal recursive function called by the public Insert()
     //Recursively searches through the tree until it finds the next open spot in the tree
     //The tree is filled from left to right.
-    void Insert(std::unique_ptr<ThreeTreeNode<T>> &node, T const &data){
+    void Insert(unique_ptr<ThreeTreeNode<T>> &node, T const &data){
         if(!node)node.reset(new ThreeTreeNode<T>(data));
         else if(node->rightChild){ //If the branch is full - check lower layers
             if(node->rightChild->rightChild)Insert(node->leftChild,data); // If next branch full - send to first element of left branch
@@ -36,12 +38,12 @@ private:
         else Insert(node->leftChild,data);
     }
     //Internal recursive remove function. Called by the public Remove() function.)
-    void Remove(std::unique_ptr<ThreeTreeNode<T>> &node){
+    void Remove(unique_ptr<ThreeTreeNode<T>> &node){
         // leaf Node
         // NOTE: Because of the nature of the tree being self balancing, a leaf node
         //       cannot just be deleted, it must be replaced by the outer most leaf to
         //       keep the tree balanced.
-        std::unique_ptr<ThreeTreeNode<T>> &leaf = FindLeaf(root);
+        unique_ptr<ThreeTreeNode<T>> &leaf = FindLeaf(root);
         if(!node->leftChild){
             if(node->key != leaf->key) node.reset(leaf.release());
             else node.reset();
@@ -62,7 +64,7 @@ private:
         }
     }
     //Find the farthest leaf node in the tree. This will be the leaf node farthest right. Returns the node 
-    std::unique_ptr<ThreeTreeNode<T>> & FindLeaf(std::unique_ptr<ThreeTreeNode<T>> &node){
+    unique_ptr<ThreeTreeNode<T>> & FindLeaf(unique_ptr<ThreeTreeNode<T>> &node){
         if(!node->leftChild)return node;
         else if(node->rightChild){
             if(node->rightChild->leftChild && !node->rightChild->rightChild) FindLeaf(node->rightChild);
@@ -74,7 +76,7 @@ private:
         else FindLeaf(node->leftChild);   
     }
     //Find the node in the tree that contains the data and return that node
-    std::unique_ptr<ThreeTreeNode<T>> &Find(std::unique_ptr<ThreeTreeNode<T>> &parent,const T &data){
+    unique_ptr<ThreeTreeNode<T>> &Find(unique_ptr<ThreeTreeNode<T>> &parent,const T &data){
         if(parent->key == data) return parent;
         else{
             if(Contains(parent->leftChild,data))return Find(parent->leftChild,data);
@@ -83,7 +85,7 @@ private:
         }
     }
     //Return true if a node exists with the data and false otherwise    
-    bool Contains(std::unique_ptr<ThreeTreeNode<T>> &parent,const T &data){
+    bool Contains(unique_ptr<ThreeTreeNode<T>> &parent,const T &data){
         if(!parent)return false;
         else if(parent->key == data)return true;
         else{
@@ -120,7 +122,7 @@ public:
     virtual void Accept(TreeIterator<T> &visitor){
         visitor.TraverseTree(*this);
     }
-    const std::unique_ptr<ThreeTreeNode<T>> &GetRoot(){return root;}
+    const unique_ptr<ThreeTreeNode<T>> &GetRoot(){return root;}
 };
 
 

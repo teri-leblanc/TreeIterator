@@ -9,6 +9,8 @@
 #define BSTSTRUCTURE_H
 #include "TwoAry.h"
 #include <memory>
+using std::unique_ptr;
+
 template <class T>
 class BSTstructure : public TwoAry<T>{
 public:
@@ -45,20 +47,20 @@ public:
     
 private:
     //Private helper function that recursively iterates through the tree until it finds a position
-    virtual void Insert(std::unique_ptr<TwoTreeNode<T>> &node, const T &data){
+    virtual void Insert(unique_ptr<TwoTreeNode<T>> &node, const T &data){
         if(!node)node.reset(new TwoTreeNode<T>(data));
         else if(node->key < data)Insert(node->rightChild,data);
         else if(node->key > data)Insert(node->leftChild,data);
     
     }
     //Finds the left most node (or minimum most node) in tree starting at the passed root.
-    std::unique_ptr<TwoTreeNode<T>> &FindMin(std::unique_ptr<TwoTreeNode<T>> &node){
+    unique_ptr<TwoTreeNode<T>> &FindMin(unique_ptr<TwoTreeNode<T>> &node){
         if(node->leftChild) return FindMin(node->leftChild);
         else return node;
     
     }
     //The following function is an internal helper that deletes the unique_ptr before its scope is up.
-    void Remove(std::unique_ptr<TwoTreeNode<T> > &deleteNode){
+    void Remove(unique_ptr<TwoTreeNode<T> > &deleteNode){
         
         if(nullptr == deleteNode->leftChild  && nullptr == deleteNode->rightChild ){
             deleteNode.reset();
@@ -71,7 +73,7 @@ private:
             deleteNode.reset(deleteNode->leftChild.release());
         }
         else{
-            std::unique_ptr<TwoTreeNode<T>> &minNode = FindMin(deleteNode->rightChild);
+            unique_ptr<TwoTreeNode<T>> &minNode = FindMin(deleteNode->rightChild);
             if(minNode->key == deleteNode->rightChild->key) deleteNode.reset(new TwoTreeNode<T> (minNode->key,deleteNode->leftChild.release(),nullptr));
             else deleteNode.reset(new TwoTreeNode<T> (minNode->key,deleteNode->leftChild.release(),deleteNode->rightChild.release()));
         }                                                                                                    // Remove node with 2 children
@@ -79,7 +81,7 @@ private:
     // The following function is an internal helper that returns a pointer to the node with specific data
     // This was implemented in order to get access to the unique pointer so that it may be deleted before the end of its scope
     // A reference to the unique_ptr that owns the node is returned
-    std::unique_ptr<TwoTreeNode<T>> &Find(std::unique_ptr<TwoTreeNode<T>> &node,const T &data){
+    unique_ptr<TwoTreeNode<T>> &Find(unique_ptr<TwoTreeNode<T>> &node,const T &data){
         if(node->key == data) return node;
         else if(node->key > data) return Find(node->leftChild,data);
         else return Find(node->rightChild,data);

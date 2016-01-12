@@ -10,10 +10,12 @@
 #include "TwoTreeNode.h"
 #include "TreeIterator.h"
 #include <memory>
+using std::unique_ptr;
+
 template <class T>
 class TwoAry{
     protected:
-    std::unique_ptr<TwoTreeNode<T>> root;
+    unique_ptr<TwoTreeNode<T>> root;
     public:
     TwoAry(){}
     TwoAry(const T &_key):root(new TwoTreeNode<T>(_key)){}
@@ -21,7 +23,7 @@ class TwoAry{
     virtual bool Remove(const T &data)=0;
     virtual bool Contains(const T &data)=0;
     virtual void Accept(TreeIterator<T> &visitor) = 0;
-    virtual const std::unique_ptr<TwoTreeNode<T>>& GetRoot(){return root;}
+    const unique_ptr<TwoTreeNode<T>>& GetRoot(){return root;}
 };
 #endif /* TWOARY_H */
 
