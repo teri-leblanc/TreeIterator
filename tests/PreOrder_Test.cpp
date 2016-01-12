@@ -22,7 +22,7 @@
  */
 
 void testTraverseTree() {
-    const BSTstructure<int> Twotree;
+    BSTstructure<int> Twotree;
     PreOrder<int> preOrder;
     try{
     preOrder.TraverseTree(Twotree);

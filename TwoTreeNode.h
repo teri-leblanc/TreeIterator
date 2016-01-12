@@ -16,7 +16,7 @@ class TwoTreeNode {
     std::unique_ptr<TwoTreeNode> rightChild;
     const T &key;
     TwoTreeNode(const T &_key, TwoTreeNode  *_leftChild, TwoTreeNode *_rightChild) : leftChild(_leftChild),rightChild(_rightChild),key(_key){}
-    TwoTreeNode(const T &_key): key(_key), leftChild(nullptr), rightChild(nullptr){}
+    TwoTreeNode(const T &_key): key(_key){}
 };
 #endif /* TWOTREENODE_H */
 

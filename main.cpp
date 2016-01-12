@@ -14,7 +14,7 @@
 #include "PreOrder.h"
 #include "PostOrder.h"
 #include "InOrder.h"
-using namespace std;
+using std::cout;
 
 int main(int argc, char** argv) {
     // Create Concrete Visitor Objects

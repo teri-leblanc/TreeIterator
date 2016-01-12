@@ -8,7 +8,7 @@
 #ifndef BSTSTRUCTURE_H
 #define BSTSTRUCTURE_H
 #include "TwoAry.h"
-
+#include <memory>
 template <class T>
 class BSTstructure : public TwoAry<T>{
 public:
@@ -35,7 +35,7 @@ public:
     //Return true if data is contained in a node within the tree, false otherwise   
     virtual bool Contains(const T &data){
         TwoTreeNode<T> *comparable = TwoAry<T>::root.get();
-        while(comparable != nullptr){
+        while(nullptr != comparable){
              if(comparable->key > data) comparable = comparable->leftChild.get();
              else if(comparable->key < data) comparable = comparable->rightChild.get();
              else if(comparable->key == data) return true;
@@ -60,14 +60,14 @@ private:
     //The following function is an internal helper that deletes the unique_ptr before its scope is up.
     void Remove(std::unique_ptr<TwoTreeNode<T> > &deleteNode){
         
-        if(deleteNode->leftChild == nullptr && deleteNode->rightChild == nullptr){
-            deleteNode.reset(nullptr);
+        if(nullptr == deleteNode->leftChild  && nullptr == deleteNode->rightChild ){
+            deleteNode.reset();
         }  // Remove Leaf
-        else if(deleteNode->leftChild == nullptr){                                                            
+        else if(nullptr == deleteNode->leftChild ){                                                            
             // Remove node with 1 child
             deleteNode.reset(deleteNode->rightChild.release());
         }
-        else if(deleteNode->rightChild == nullptr){
+        else if(nullptr == deleteNode->rightChild){
             deleteNode.reset(deleteNode->leftChild.release());
         }
         else{

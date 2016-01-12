@@ -21,7 +21,7 @@
 
 void testThreeAry() {
     ThreeAry<int> threeAry;
-    if (threeAry.root) {
+    if (threeAry.GetRoot()) {
         std::cout << "%TEST_FAILED% time=0 testname=testThreeAry (ThreeAry_Test) message=Root is not null but should be" << std::endl;
     }
 }
@@ -29,7 +29,7 @@ void testThreeAry() {
 void testThreeAry2() {
     const int& _key = 5;
     ThreeAry<int> threeAry(_key);
-    if (!threeAry.root->key == _key) {
+    if (!threeAry.GetRoot()->key == _key) {
         std::cout << "%TEST_FAILED% time=0 testname=testThreeAry2 (ThreeAry_Test) message=error message sample" << std::endl;
     }
 }

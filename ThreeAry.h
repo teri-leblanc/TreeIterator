@@ -13,11 +13,12 @@
 #ifndef THREEARY_H
 #define THREEARY_H
 #include "ThreeTreeNode.h"
-#include <exception>
 #include "TreeIterator.h"
+#include <memory>
 template <class T>
 class ThreeAry{
 private:
+     std::unique_ptr<ThreeTreeNode<T>> root;
     //Internal recursive function called by the public Insert()
     //Recursively searches through the tree until it finds the next open spot in the tree
     //The tree is filled from left to right.
@@ -43,7 +44,7 @@ private:
         std::unique_ptr<ThreeTreeNode<T>> &leaf = FindLeaf(root);
         if(!node->leftChild){
             if(node->key != leaf->key) node.reset(leaf.release());
-            else node.reset(nullptr);
+            else node.reset();
         }
         // One Child
         else if(!node->middleChild)node.reset(node->leftChild.release());
@@ -92,10 +93,9 @@ private:
             return false;
         }
     }
-
 public:
-    std::unique_ptr<ThreeTreeNode<T>> root;
-    ThreeAry():root(nullptr){}
+
+    ThreeAry(){}
     ThreeAry(const T &_key):root(new ThreeTreeNode<T>(_key)){}
 
     //Return true if inserted into the tree, false otherwise
@@ -120,6 +120,7 @@ public:
     virtual void Accept(TreeIterator<T> &visitor){
         visitor.TraverseTree(*this);
     }
+    const std::unique_ptr<ThreeTreeNode<T>> &GetRoot(){return root;}
 };
 
 

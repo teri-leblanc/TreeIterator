@@ -9,18 +9,19 @@
 #define TWOARY_H
 #include "TwoTreeNode.h"
 #include "TreeIterator.h"
-#include <iostream>
-#include <cstdlib>
+#include <memory>
 template <class T>
 class TwoAry{
-    public:
+    protected:
     std::unique_ptr<TwoTreeNode<T>> root;
-    TwoAry() :root(nullptr){}
+    public:
+    TwoAry(){}
     TwoAry(const T &_key):root(new TwoTreeNode<T>(_key)){}
     virtual bool Insert(const T &data)=0;
     virtual bool Remove(const T &data)=0;
     virtual bool Contains(const T &data)=0;
     virtual void Accept(TreeIterator<T> &visitor) = 0;
+    virtual const std::unique_ptr<TwoTreeNode<T>>& GetRoot(){return root;}
 };
 #endif /* TWOARY_H */
 
