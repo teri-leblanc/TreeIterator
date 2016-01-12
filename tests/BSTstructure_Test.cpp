@@ -25,7 +25,11 @@
 void testBSTstructure() {
     BSTstructure<int> bSTstructure;
     if (bSTstructure.root) {
-        std::cout << "%TEST_FAILED% time=0 testname=testBSTstructure (BSTstructure_Test) message=error message sample" << std::endl;
+        std::cout << "%TEST_FAILED% time=0 testname=testBSTstructure (BSTstructure_Test) message=Int constructor failed" << std::endl;
+    }
+    BSTstructure<std::string> bSTstructureS;
+    if (bSTstructureS.root) {
+        std::cout << "%TEST_FAILED% time=0 testname=testBSTstructure (BSTstructure_Test) message=String constructor failed" << std::endl;
     }
 }
 
@@ -33,10 +37,17 @@ void testBSTstructure2() {
     int _key=0;
     BSTstructure<int> bSTstructure(_key);
     if (!bSTstructure.root) {
-        std::cout << "%TEST_FAILED% time=0 testname=testBSTstructure2 (BSTstructure_Test) message=Root is empty" << std::endl;
+        std::cout << "%TEST_FAILED% time=0 testname=testBSTstructure2 (BSTstructure_Test) message=Int Root is empty" << std::endl;
     }
     if (bSTstructure.root->key != _key) {
-        std::cout << "%TEST_FAILED% time=0 testname=testBSTstructure2 (BSTstructure_Test) message=Key not in root of tree" << std::endl;
+        std::cout << "%TEST_FAILED% time=0 testname=testBSTstructure2 (BSTstructure_Test) message=Int Key not in root of tree" << std::endl;
+    }
+    BSTstructure<char> bSTstructureS('k');
+    if (!bSTstructureS.root) {
+        std::cout << "%TEST_FAILED% time=0 testname=testBSTstructure2 (BSTstructure_Test) message=String Root is empty" << std::endl;
+    }
+    if (bSTstructureS.root->key != 'k') {
+        std::cout << "%TEST_FAILED% time=0 testname=testBSTstructure2 (BSTstructure_Test) message=String Key not in root of tree" << std::endl;
     }
 }
 

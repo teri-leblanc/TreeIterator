@@ -19,7 +19,7 @@ public:
     }
     //Return true if inserted into the tree, false otherwise   
     virtual bool Insert(const T &data){
-        if(!this->root){this->root.reset(new TwoTreeNode<T> (data));} // Add root node
+        if(!this->root)this->root.reset(new TwoTreeNode<T> (data));// Add root node
         else if(Contains(data))return false;    // Don't allow duplicates                               // Node already exists
         else Insert(this->root,data);           // Add node using recursive private function
         return true;
@@ -27,8 +27,7 @@ public:
     //Return true if removed from the tree, false otherwise
     virtual bool Remove(const T &data){
         if(Contains(data)){
-            std::unique_ptr<TwoTreeNode<T>> &deleteNode = Find(this->root,data);
-            Remove(deleteNode);
+            Remove(Find(this->root,data));
             return true;
         }
         return false;

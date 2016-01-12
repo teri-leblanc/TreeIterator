@@ -69,9 +69,7 @@ private:
             else if(!node->leftChild->leftChild) FindLeaf(node->rightChild);
             else FindLeaf(node->leftChild);
         }
-        else if(node->middleChild){
-            FindLeaf(node->middleChild);
-        }
+        else if(node->middleChild)FindLeaf(node->middleChild);
         else FindLeaf(node->leftChild);   
     }
     //Find the node in the tree that contains the data and return that node
